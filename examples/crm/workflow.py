@@ -3,7 +3,7 @@
 from enum import StrEnum
 from uuid import UUID
 
-from architect.primitives import (
+from factory.primitives import (
     DispatcherDefinition,
     EntityDefinition,
     FieldDef,

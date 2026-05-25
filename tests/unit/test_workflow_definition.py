@@ -1,6 +1,6 @@
 import pytest
 
-from architect.primitives import (
+from factory.primitives import (
     AgentDefinition,
     DispatcherDefinition,
     EntityDefinition,
@@ -10,7 +10,7 @@ from architect.primitives import (
     Transition,
     WorkflowDefinition,
 )
-from architect.providers.instagram import InstagramProvider
+from factory.providers.instagram import InstagramProvider
 
 
 class TestWorkflowDefinition:

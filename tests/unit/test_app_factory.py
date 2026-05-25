@@ -1,13 +1,13 @@
 from typing import Any
 
-from architect.runtime.app import create_app
+from factory.runtime.app import create_app
 
 
 class TestAppFactory:
     def test_creates_app(self):
         app = create_app()
         assert app is not None
-        assert app.title == "The Architect"
+        assert app.title == "The Factory"
 
     def test_health_endpoint_exists(self):
         app = create_app()

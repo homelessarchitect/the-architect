@@ -1,12 +1,12 @@
 """ASOS — Autonomous Sales Operating System (full port).
 
 Complete workflow definition porting ALL ASOS entities, pipelines, custom tools,
-and dispatchers to The Architect's declarative primitives.
+and dispatchers to The Factory's declarative primitives.
 
-Modules EXCLUDED (handled by The Architect core, not per-workflow):
-  - api_keys        (shared auth — architect.modules.api_keys)
-  - approvals       (shared HITL — architect.modules.approvals)
-  - memory          (agent experience — architect.modules.state / Phase 3 pgvector)
+Modules EXCLUDED (handled by The Factory core, not per-workflow):
+  - api_keys        (shared auth — factory.modules.api_keys)
+  - approvals       (shared HITL — factory.modules.approvals)
+  - memory          (agent experience — factory.modules.state / Phase 3 pgvector)
   - outreach        (dispatcher + email — mapped as DispatcherDefinition, not an entity)
 
 Known limitation: FieldDef.type does not support `date` (only `datetime`).
@@ -18,7 +18,7 @@ from datetime import datetime
 from enum import StrEnum
 from uuid import UUID
 
-from architect.primitives import (
+from factory.primitives import (
     AgentDefinition,
     DispatcherDefinition,
     EntityDefinition,

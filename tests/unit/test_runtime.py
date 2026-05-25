@@ -1,10 +1,10 @@
 import pytest
 from typing import Any
 
-from architect.runtime.provider_registry import ProviderRegistry
-from architect.runtime.dispatcher import Dispatcher
-from architect.primitives import DispatcherDefinition, Provider, FieldDef
-from architect.providers.instagram import InstagramProvider
+from factory.runtime.provider_registry import ProviderRegistry
+from factory.runtime.dispatcher import Dispatcher
+from factory.primitives import DispatcherDefinition, Provider, FieldDef
+from factory.providers.instagram import InstagramProvider
 
 
 class MockProvider(Provider):

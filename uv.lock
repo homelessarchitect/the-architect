@@ -952,7 +952,7 @@ wheels = [
 ]
 
 [[package]]
-name = "the-architect"
+name = "the-factory"
 version = "0.0.1"
 source = { editable = "." }
 dependencies = [

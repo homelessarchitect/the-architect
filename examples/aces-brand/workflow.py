@@ -1,8 +1,8 @@
-"""ACES Brand entity port — validates The Architect generates code matching hand-written quality."""
+"""ACES Brand entity port — validates The Factory generates code matching hand-written quality."""
 
 from uuid import UUID
 
-from architect.primitives import (
+from factory.primitives import (
     EntityDefinition,
     FieldDef,
     ToolDefinition,
@@ -62,5 +62,5 @@ workflow = WorkflowDefinition(
         ToolDefinition.crud("persona"),
         ToolDefinition.crud("content_idea"),
     ],
-    description="Subset of ACES — validates The Architect generates code matching hand-written quality",
+    description="Subset of ACES — validates The Factory generates code matching hand-written quality",
 )

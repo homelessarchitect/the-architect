@@ -1,6 +1,6 @@
 from click.testing import CliRunner
 
-from architect.cli.main import cli
+from factory.cli.main import cli
 
 
 class TestInitCommand:
@@ -47,4 +47,4 @@ class TestInitCommand:
     def test_output_shows_next_steps(self, tmp_path):
         runner = CliRunner()
         result = runner.invoke(cli, ["init", "test-wf", "-o", str(tmp_path)])
-        assert "architect plan" in result.output
+        assert "factory plan" in result.output

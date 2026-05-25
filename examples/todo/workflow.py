@@ -1,6 +1,6 @@
 """Minimal example — a todo list workflow with one entity."""
 
-from architect.primitives import (
+from factory.primitives import (
     EntityDefinition,
     FieldDef,
     ToolDefinition,

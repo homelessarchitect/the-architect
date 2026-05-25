@@ -3,8 +3,8 @@ from unittest.mock import patch
 import pytest
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
-from architect.core.database import Base
-from architect.modules.credentials.service import CredentialStore
+from factory.core.database import Base
+from factory.modules.credentials.service import CredentialStore
 
 
 @pytest.fixture
@@ -24,11 +24,11 @@ async def async_session():
 def mock_encryption():
     with (
         patch(
-            "architect.modules.credentials.service.encrypt",
+            "factory.modules.credentials.service.encrypt",
             side_effect=lambda s: s.encode(),
         ),
         patch(
-            "architect.modules.credentials.service.decrypt",
+            "factory.modules.credentials.service.decrypt",
             side_effect=lambda b: b.decode(),
         ),
     ):

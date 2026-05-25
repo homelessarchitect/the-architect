@@ -1,8 +1,8 @@
 import pytest
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
-from architect.core.database import Base
-from architect.modules.budgets.service import (
+from factory.core.database import Base
+from factory.modules.budgets.service import (
     BudgetExceededError,
     BudgetTracker,
     CircuitBreakerError,

@@ -3,7 +3,7 @@ from datetime import datetime
 from enum import StrEnum
 from uuid import UUID
 
-from architect.primitives import EntityDefinition, FieldDef
+from factory.primitives import EntityDefinition, FieldDef
 
 
 class LeadStatus(StrEnum):

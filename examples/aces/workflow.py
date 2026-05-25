@@ -1,14 +1,14 @@
 """ACES — Autonomous Content Engine System (full port).
 
 Complete workflow definition porting ALL ACES entities, pipelines, custom tools,
-and dispatchers to The Architect's declarative primitives.
+and dispatchers to The Factory's declarative primitives.
 
-Modules EXCLUDED (handled by The Architect core, not per-workflow):
-  - api_keys        (shared auth — architect.modules.api_keys)
-  - approvals       (shared HITL — architect.modules.approvals)
+Modules EXCLUDED (handled by The Factory core, not per-workflow):
+  - api_keys        (shared auth — factory.modules.api_keys)
+  - approvals       (shared HITL — factory.modules.approvals)
   - uploads         (stateless file I/O — no DB entity)
   - integrations    (OAuth proxy — no DB entity)
-  - integration_settings (provider config — maps to architect.modules.credentials)
+  - integration_settings (provider config — maps to factory.modules.credentials)
 
 Known limitation: FieldDef.type does not support `date` (only `datetime`).
 Fields like publish_date, period_start, period_end, planned_date use `str` with
@@ -24,7 +24,7 @@ from datetime import datetime
 from enum import StrEnum
 from uuid import UUID
 
-from architect.primitives import (
+from factory.primitives import (
     AgentDefinition,
     DispatcherDefinition,
     EntityDefinition,

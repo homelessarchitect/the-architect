@@ -1,6 +1,6 @@
 from click.testing import CliRunner
 
-from architect.cli.main import cli
+from factory.cli.main import cli
 
 
 class TestApiKeyCommand:

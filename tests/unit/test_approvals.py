@@ -4,12 +4,12 @@ from typing import Any, ClassVar
 import pytest
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
-from architect.core.database import Base
-from architect.modules.approvals.models import Approval  # noqa: F401
-from architect.modules.approvals.service import ApprovalService
-from architect.primitives import DispatcherDefinition, Provider
-from architect.runtime.dispatcher import Dispatcher
-from architect.runtime.provider_registry import ProviderRegistry
+from factory.core.database import Base
+from factory.modules.approvals.models import Approval  # noqa: F401
+from factory.modules.approvals.service import ApprovalService
+from factory.primitives import DispatcherDefinition, Provider
+from factory.runtime.dispatcher import Dispatcher
+from factory.runtime.provider_registry import ProviderRegistry
 
 
 class MockProvider(Provider):
@@ -221,8 +221,8 @@ class TestPipelineApprovalIntegration:
         3. Human approves
         4. Dispatcher executes via provider
         """
-        from architect.primitives import PipelineDefinition, Transition
-        from architect.runtime.pipeline_engine import PipelineEngine
+        from factory.primitives import PipelineDefinition, Transition
+        from factory.runtime.pipeline_engine import PipelineEngine
 
         MockProvider.call_log = []
 

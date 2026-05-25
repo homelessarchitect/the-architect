@@ -7,9 +7,9 @@ from uuid import UUID
 
 import pytest
 
-from architect.generators.orchestrator import generate_workflow
-from architect.generators.pipeline_tool_gen import generate_pipeline_tools
-from architect.primitives import (
+from factory.generators.orchestrator import generate_workflow
+from factory.generators.pipeline_tool_gen import generate_pipeline_tools
+from factory.primitives import (
     EntityDefinition,
     FieldDef,
     PipelineDefinition,
@@ -188,7 +188,7 @@ class TestPipelineToolGeneration:
         )
         content = result.read_text()
         assert "ContentPieceRepository" in content
-        assert "architect.generated.testcontent.content_piece.repository" in content
+        assert "factory.generated.testcontent.content_piece.repository" in content
 
 
 class TestOrchestratorWithPipelines:

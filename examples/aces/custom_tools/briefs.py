@@ -29,9 +29,9 @@ def register(mcp: FastMCP) -> None:
         Claude should generate hook_options, outline, cta, and keywords,
         then call save_content_brief with the generated content.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.brand.repository import BrandRepository
-        from architect.generated.aces.content_idea.repository import ContentIdeaRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.brand.repository import BrandRepository
+        from factory.generated.aces.content_idea.repository import ContentIdeaRepository
 
         factory = get_session_factory()
         async with factory() as session:
@@ -102,10 +102,10 @@ def register(mcp: FastMCP) -> None:
         """Save a content brief. Transitions the idea status to 'briefed'.
         Call get_brief_context first, then this tool with the generated content.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.content_brief.models import ContentBrief
-        from architect.generated.aces.content_brief.repository import ContentBriefRepository
-        from architect.generated.aces.content_idea.repository import ContentIdeaRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.content_brief.models import ContentBrief
+        from factory.generated.aces.content_brief.repository import ContentBriefRepository
+        from factory.generated.aces.content_idea.repository import ContentIdeaRepository
 
         factory = get_session_factory()
         async with factory() as session:
@@ -133,6 +133,6 @@ def register(mcp: FastMCP) -> None:
             await session.commit()
             await session.refresh(brief)
 
-        from architect.generated.aces.content_brief.serialize import serialize_content_brief
+        from factory.generated.aces.content_brief.serialize import serialize_content_brief
 
         return {"brief": serialize_content_brief(brief)}

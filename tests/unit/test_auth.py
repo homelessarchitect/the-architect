@@ -3,8 +3,8 @@ import uuid
 import pytest
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
-from architect.core.database import Base
-from architect.modules.api_keys.service import ApiKeyService
+from factory.core.database import Base
+from factory.modules.api_keys.service import ApiKeyService
 
 
 @pytest.fixture

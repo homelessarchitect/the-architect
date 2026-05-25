@@ -30,10 +30,10 @@ def register(mcp: FastMCP) -> None:
         Returns brand voice, brief outline, and platform guidelines with a reasoning_prompt.
         Claude should generate the raw_copy, then call update_piece_copy to save it.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.brand.repository import BrandRepository
-        from architect.generated.aces.content_brief.repository import ContentBriefRepository
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.brand.repository import BrandRepository
+        from factory.generated.aces.content_brief.repository import ContentBriefRepository
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
 
         factory = get_session_factory()
         async with factory() as session:
@@ -106,9 +106,9 @@ def register(mcp: FastMCP) -> None:
         raw_copy: Annotated[str, "Generated copy adapted to platform tone and length"],
     ) -> dict[str, Any]:
         """Save generated raw copy to a content piece. Call after generate_copy returns context."""
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
-        from architect.generated.aces.content_piece.serialize import serialize_content_piece
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.generated.aces.content_piece.serialize import serialize_content_piece
 
         factory = get_session_factory()
         async with factory() as session:
@@ -133,8 +133,8 @@ def register(mcp: FastMCP) -> None:
         Returns brand voice and a reasoning_prompt. Claude generates and returns the hooks
         directly — no save needed. Hooks are suggestions for create_content_brief.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.brand.repository import BrandRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.brand.repository import BrandRepository
 
         factory = get_session_factory()
         async with factory() as session:
@@ -182,10 +182,10 @@ def register(mcp: FastMCP) -> None:
         Claude adapts the content, then calls create_content_piece with parent_piece_id
         set to the source piece.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.brand.repository import BrandRepository
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
-        from architect.generated.aces.script.repository import ScriptRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.brand.repository import BrandRepository
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.generated.aces.script.repository import ScriptRepository
 
         factory = get_session_factory()
         async with factory() as session:

@@ -6,9 +6,9 @@ from enum import StrEnum
 
 import pytest
 
-from architect.generators.approval_tool_gen import generate_approval_tools
-from architect.generators.orchestrator import generate_workflow
-from architect.primitives import (
+from factory.generators.approval_tool_gen import generate_approval_tools
+from factory.generators.orchestrator import generate_workflow
+from factory.primitives import (
     DispatcherDefinition,
     EntityDefinition,
     FieldDef,
@@ -212,7 +212,7 @@ class TestDispatcherWiring:
 
     def test_build_dispatchers_from_state_data(self):
         """Test the pattern used in serve_cmd._build_dispatchers."""
-        from architect.runtime.dispatcher import Dispatcher
+        from factory.runtime.dispatcher import Dispatcher
 
         defs_data = [
             {
@@ -239,14 +239,14 @@ class TestAppDispatcherRegistry:
     """Test the module-level dispatcher registry in app.py."""
 
     def test_get_dispatcher_returns_none_when_not_set(self):
-        from architect.runtime.app import get_dispatcher
+        from factory.runtime.app import get_dispatcher
 
         result = get_dispatcher("nonexistent")
         assert result is None
 
     def test_create_app_stores_dispatchers(self):
-        from architect.runtime.app import _dispatchers, create_app, get_dispatcher
-        from architect.runtime.dispatcher import Dispatcher
+        from factory.runtime.app import _dispatchers, create_app, get_dispatcher
+        from factory.runtime.dispatcher import Dispatcher
 
         # Clean up any previous state
         _dispatchers.clear()

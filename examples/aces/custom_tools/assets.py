@@ -37,9 +37,9 @@ def register(mcp: FastMCP) -> None:
         platform asset specs, and a reasoning_prompt instructing Claude to generate a detailed
         prompt and then call create_asset to save it.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.brand.repository import BrandRepository
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.brand.repository import BrandRepository
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
 
         factory = get_session_factory()
         async with factory() as session:
@@ -97,10 +97,10 @@ def register(mcp: FastMCP) -> None:
         platform specs, and a reasoning_prompt. Use for reels, short-videos, or any
         video format requiring motion design direction.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.brand.repository import BrandRepository
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
-        from architect.generated.aces.script.repository import ScriptRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.brand.repository import BrandRepository
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.generated.aces.script.repository import ScriptRepository
 
         factory = get_session_factory()
         async with factory() as session:

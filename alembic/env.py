@@ -5,19 +5,19 @@ from alembic import context
 from sqlalchemy import pool
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
-from architect.core.config import get_settings
-from architect.core.database import Base
+from factory.core.config import get_settings
+from factory.core.database import Base
 
 # Import ALL models so they register with Base.metadata
-from architect.modules.api_keys.models import ApiKey
-from architect.modules.budgets.models import TokenBudget
-from architect.modules.credentials.models import Credential
-from architect.modules.executions.models import ExecutionStep, WorkflowExecution
-from architect.modules.state.models import StateLock, WorkflowState
+from factory.modules.api_keys.models import ApiKey
+from factory.modules.budgets.models import TokenBudget
+from factory.modules.credentials.models import Credential
+from factory.modules.executions.models import ExecutionStep, WorkflowExecution
+from factory.modules.state.models import StateLock, WorkflowState
 
 # Try to import approvals if it exists
 try:
-    from architect.modules.approvals.models import Approval
+    from factory.modules.approvals.models import Approval
 except ImportError:
     pass
 

@@ -27,7 +27,7 @@ def register(mcp: FastMCP) -> None:
         Aspect ratio is a hint — Gemini may drift; 1:1 is safest for IG.
         On quota/rate-limit, returns error dict.
         """
-        from architect.core.config import get_settings
+        from factory.core.config import get_settings
 
         settings = get_settings()
         google_key = getattr(settings, "google_studio_api_key", None)
@@ -36,7 +36,7 @@ def register(mcp: FastMCP) -> None:
                 "error": "integration_not_configured",
                 "detail": (
                     "GOOGLE_STUDIO_API_KEY not configured. "
-                    "Set it via `architect credential set google_studio_api_key <key>` "
+                    "Set it via `factory credential set google_studio_api_key <key>` "
                     "or as an environment variable."
                 ),
             }

@@ -1,7 +1,7 @@
 import pytest
 
-from architect.primitives import PipelineDefinition, Transition
-from architect.runtime.pipeline_engine import PipelineEngine
+from factory.primitives import PipelineDefinition, Transition
+from factory.runtime.pipeline_engine import PipelineEngine
 
 
 @pytest.fixture

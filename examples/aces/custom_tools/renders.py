@@ -19,10 +19,10 @@ def register(mcp: FastMCP) -> None:
         Creates a RenderJob(status=queued) and runs the render in the background.
         Poll get_render_status(render_id) to track progress.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
-        from architect.generated.aces.render_job.models import RenderJob
-        from architect.generated.aces.render_job.repository import RenderJobRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.generated.aces.render_job.models import RenderJob
+        from factory.generated.aces.render_job.repository import RenderJobRepository
 
         factory = get_session_factory()
         async with factory() as session:
@@ -64,11 +64,11 @@ def register(mcp: FastMCP) -> None:
         Validates piece has format='carousel' and a SlidePlan with a valid slot at slot_order.
         Returns {render_id, status='queued'} on success.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
-        from architect.generated.aces.render_job.models import RenderJob
-        from architect.generated.aces.render_job.repository import RenderJobRepository
-        from architect.generated.aces.slide_plan.repository import SlidePlanRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.generated.aces.render_job.models import RenderJob
+        from factory.generated.aces.render_job.repository import RenderJobRepository
+        from factory.generated.aces.slide_plan.repository import SlidePlanRepository
 
         factory = get_session_factory()
         async with factory() as session:
@@ -112,9 +112,9 @@ def register(mcp: FastMCP) -> None:
         """Get the current status of a render job.
         Status values: queued, rendering, ready (video_url available), failed (error field set).
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.render_job.repository import RenderJobRepository
-        from architect.generated.aces.render_job.serialize import serialize_render_job
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.render_job.repository import RenderJobRepository
+        from factory.generated.aces.render_job.serialize import serialize_render_job
 
         factory = get_session_factory()
         async with factory() as session:

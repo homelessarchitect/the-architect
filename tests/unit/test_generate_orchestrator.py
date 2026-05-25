@@ -8,8 +8,8 @@ from uuid import UUID
 
 import pytest
 
-from architect.generators.orchestrator import generate_workflow
-from architect.primitives import (
+from factory.generators.orchestrator import generate_workflow
+from factory.primitives import (
     EntityDefinition,
     FieldDef,
     ToolDefinition,

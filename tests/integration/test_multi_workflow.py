@@ -2,8 +2,8 @@ from enum import StrEnum
 
 import pytest
 
-from architect.generators.orchestrator import generate_workflow
-from architect.primitives import (
+from factory.generators.orchestrator import generate_workflow
+from factory.primitives import (
     EntityDefinition,
     FieldDef,
     ToolDefinition,
@@ -77,8 +77,8 @@ class TestMultiWorkflowIsolation:
         crm_tools = (tmp_path / "crm" / "contact" / "tools.py").read_text()
         content_tools = (tmp_path / "content" / "contact" / "tools.py").read_text()
 
-        assert "architect.generated.crm" in crm_tools
-        assert "architect.generated.content" in content_tools
+        assert "factory.generated.crm" in crm_tools
+        assert "factory.generated.content" in content_tools
 
     def test_separate_registries(self, crm_workflow, content_workflow, tmp_path):
         generate_workflow(crm_workflow, tmp_path)
@@ -126,5 +126,5 @@ class TestMultiWorkflowIsolation:
         crm_repo = (tmp_path / "crm" / "contact" / "repository.py").read_text()
         content_repo = (tmp_path / "content" / "contact" / "repository.py").read_text()
 
-        assert "architect.generated.crm" in crm_repo
-        assert "architect.generated.content" in content_repo
+        assert "factory.generated.crm" in crm_repo
+        assert "factory.generated.content" in content_repo

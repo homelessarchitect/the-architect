@@ -3,10 +3,10 @@ from enum import StrEnum
 import pytest
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
-from architect.core.database import Base
-from architect.generators.orchestrator import generate_workflow
-from architect.modules.state.service import StateService
-from architect.primitives import (
+from factory.core.database import Base
+from factory.generators.orchestrator import generate_workflow
+from factory.modules.state.service import StateService
+from factory.primitives import (
     EntityDefinition,
     FieldDef,
     ToolDefinition,

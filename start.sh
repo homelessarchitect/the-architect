@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "The Architect — starting up"
+echo "The Factory — starting up"
 
 # Apply production workflows (generates code + creates tables)
 WORKFLOWS="${ARCHITECT_WORKFLOWS:-examples/aces/workflow.py examples/asos/workflow.py}"

@@ -3,7 +3,7 @@ from pathlib import Path
 
 from click.testing import CliRunner
 
-from architect.cli.main import cli
+from factory.cli.main import cli
 
 
 @pytest.fixture
@@ -11,7 +11,7 @@ def workflow_file(tmp_path) -> Path:
     wf = tmp_path / "workflow.py"
     wf.write_text(
         '''
-from architect.primitives import EntityDefinition, FieldDef, ToolDefinition, WorkflowDefinition
+from factory.primitives import EntityDefinition, FieldDef, ToolDefinition, WorkflowDefinition
 
 item = EntityDefinition(
     name="item",
@@ -31,7 +31,7 @@ workflow = WorkflowDefinition(
 
 class TestCLILoader:
     def test_load_workflow_from_file(self, workflow_file):
-        from architect.cli.loader import load_workflow_from_file
+        from factory.cli.loader import load_workflow_from_file
 
         wf = load_workflow_from_file(workflow_file)
         assert wf.name == "Test"
@@ -39,7 +39,7 @@ class TestCLILoader:
         assert len(wf.entities) == 1
 
     def test_load_nonexistent_file(self, tmp_path):
-        from architect.cli.loader import load_workflow_from_file
+        from factory.cli.loader import load_workflow_from_file
 
         with pytest.raises(FileNotFoundError):
             load_workflow_from_file(tmp_path / "nope.py")
@@ -47,7 +47,7 @@ class TestCLILoader:
     def test_load_file_without_workflow(self, tmp_path):
         f = tmp_path / "bad.py"
         f.write_text("x = 42")
-        from architect.cli.loader import load_workflow_from_file
+        from factory.cli.loader import load_workflow_from_file
 
         with pytest.raises(RuntimeError, match="No WorkflowDefinition"):
             load_workflow_from_file(f)

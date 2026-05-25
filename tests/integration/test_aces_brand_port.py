@@ -1,8 +1,8 @@
 import pytest
 from pathlib import Path
 
-from architect.generators.orchestrator import generate_workflow
-from architect.cli.loader import load_workflow_from_file
+from factory.generators.orchestrator import generate_workflow
+from factory.cli.loader import load_workflow_from_file
 
 
 @pytest.fixture

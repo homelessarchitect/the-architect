@@ -20,9 +20,9 @@ def register(mcp: FastMCP) -> None:
         Claude should use this context to reason and produce {count} ideas,
         then call create_content_idea for each one with source='ai-generated'.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.brand.repository import BrandRepository
-        from architect.generated.aces.persona.repository import PersonaRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.brand.repository import BrandRepository
+        from factory.generated.aces.persona.repository import PersonaRepository
 
         factory = get_session_factory()
         async with factory() as session:

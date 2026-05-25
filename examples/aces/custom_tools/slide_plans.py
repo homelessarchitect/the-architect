@@ -16,10 +16,10 @@ def register(mcp: FastMCP) -> None:
         Returns brief outline, hook_options, cta, keywords, and the piece's format/platform.
         Claude should design 2-10 slots and call plan_carousel_slides.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.brand.repository import BrandRepository
-        from architect.generated.aces.content_brief.repository import ContentBriefRepository
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.brand.repository import BrandRepository
+        from factory.generated.aces.content_brief.repository import ContentBriefRepository
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
 
         factory = get_session_factory()
         async with factory() as session:
@@ -102,12 +102,12 @@ def register(mcp: FastMCP) -> None:
         Use generate_slide_plan_context first to read the brief and reason about slides.
         Returns plan_id, piece_id, slots, and asset_ids (one per slot).
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.asset.models import Asset
-        from architect.generated.aces.asset.repository import AssetRepository
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
-        from architect.generated.aces.slide_plan.models import SlidePlan
-        from architect.generated.aces.slide_plan.repository import SlidePlanRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.asset.models import Asset
+        from factory.generated.aces.asset.repository import AssetRepository
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.generated.aces.slide_plan.models import SlidePlan
+        from factory.generated.aces.slide_plan.repository import SlidePlanRepository
 
         if len(slots) < 2 or len(slots) > 10:
             return {"error": "ValidationError", "detail": "slots must have 2-10 items"}

@@ -1,4 +1,4 @@
-# The Architect
+# The Factory
 
 **Terraform for MCP agent workflows.** Define your agent's domain in Python, get models, schemas, MCP tools, pipelines, and HITL approval flows — generated and deployed in one command.
 
@@ -18,7 +18,7 @@ Updating state...        done  v1
 
 Building an MCP-powered agent backend means writing the same boilerplate for every entity: SQLAlchemy models, Pydantic schemas, repository classes, MCP tool functions, status pipelines, approval gates. For ACES (a content engine with 14 entities), that was **thousands of lines** of repetitive code.
 
-The Architect replaces that with **783 lines of declarative Python** that generates everything:
+The Factory replaces that with **783 lines of declarative Python** that generates everything:
 
 | What you write | What you get |
 |---|---|
@@ -58,8 +58,8 @@ WorkflowDefinition (Python)
 
 ```bash
 # Clone and install
-git clone https://github.com/gentleman-dots/the-architect.git
-cd the-architect
+git clone https://github.com/gentleman-dots/the-factory.git
+cd the-factory
 uv sync
 
 # Start Postgres (or use an existing one)
@@ -205,8 +205,8 @@ railway add --plugin postgresql
 railway up
 
 # Docker
-docker build -t the-architect .
-docker run -e ARCHITECT_DATABASE_URL=... -p 8000:8000 the-architect
+docker build -t the-factory .
+docker run -e ARCHITECT_DATABASE_URL=... -p 8000:8000 the-factory
 ```
 
 ## License

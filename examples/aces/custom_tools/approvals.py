@@ -23,10 +23,10 @@ def register(mcp: FastMCP) -> None:
         Creates an Approval(pending) and transitions piece status to 'review'.
         The human approves or rejects in the dashboard.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
-        from architect.generated.aces.render_job.repository import RenderJobRepository
-        from architect.modules.approvals.service import ApprovalService
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.generated.aces.render_job.repository import RenderJobRepository
+        from factory.modules.approvals.service import ApprovalService
 
         factory = get_session_factory()
         async with factory() as session:
@@ -88,9 +88,9 @@ def register(mcp: FastMCP) -> None:
         """Queue a newsletter send request for human approval. Does NOT send immediately.
         Creates an Approval(pending) and transitions piece status to 'review'.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
-        from architect.modules.approvals.service import ApprovalService
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.modules.approvals.service import ApprovalService
 
         factory = get_session_factory()
         async with factory() as session:
@@ -141,9 +141,9 @@ def register(mcp: FastMCP) -> None:
         """
         from sqlalchemy import select
 
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
-        from architect.modules.approvals.models import Approval
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.modules.approvals.models import Approval
 
         factory = get_session_factory()
         async with factory() as session:

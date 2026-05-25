@@ -20,8 +20,8 @@ def register(mcp: FastMCP) -> None:
         Claude MUST call create_content_idea with source='trending' for each worthy result.
         Requires EXA_API_KEY in credentials.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.brand.repository import BrandRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.brand.repository import BrandRepository
 
         factory = get_session_factory()
         async with factory() as session:
@@ -42,7 +42,7 @@ def register(mcp: FastMCP) -> None:
         exa_error = None
 
         try:
-            from architect.core.config import get_settings
+            from factory.core.config import get_settings
 
             settings = get_settings()
             exa_key = getattr(settings, "exa_api_key", None)
@@ -105,8 +105,8 @@ def register(mcp: FastMCP) -> None:
         Returns structured results and a gap_summary for Claude to interpret.
         Read-only — does not persist any data. Requires EXA_API_KEY.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.brand.repository import BrandRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.brand.repository import BrandRepository
 
         factory = get_session_factory()
         async with factory() as session:
@@ -119,7 +119,7 @@ def register(mcp: FastMCP) -> None:
         exa_error = None
 
         try:
-            from architect.core.config import get_settings
+            from factory.core.config import get_settings
 
             settings = get_settings()
             exa_key = getattr(settings, "exa_api_key", None)

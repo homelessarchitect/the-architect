@@ -25,8 +25,8 @@ def register(mcp: FastMCP) -> None:
         """
         import json
 
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.brand.repository import BrandRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.brand.repository import BrandRepository
 
         factory = get_session_factory()
         async with factory() as session:
@@ -77,9 +77,9 @@ def register(mcp: FastMCP) -> None:
         """Get all calendar slots for a brand across all calendars. Useful for scheduling overview."""
         from sqlalchemy import select
 
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.calendar_slot.models import CalendarSlot
-        from architect.generated.aces.content_calendar.models import ContentCalendar
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.calendar_slot.models import CalendarSlot
+        from factory.generated.aces.content_calendar.models import ContentCalendar
 
         factory = get_session_factory()
         async with factory() as session:

@@ -31,10 +31,10 @@ def register(mcp: FastMCP) -> None:
         Returns piece details, brand voice, archetype description, and platform guidelines.
         Claude should generate the script, then call save_script with the generated content.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.brand.repository import BrandRepository
-        from architect.generated.aces.content_brief.repository import ContentBriefRepository
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.brand.repository import BrandRepository
+        from factory.generated.aces.content_brief.repository import ContentBriefRepository
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
 
         factory = get_session_factory()
         async with factory() as session:
@@ -122,11 +122,11 @@ def register(mcp: FastMCP) -> None:
         """Save a generated script. Transitions piece status to 'scripted'
         and back-links piece.script_id. Call generate_script first.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
-        from architect.generated.aces.script.models import Script
-        from architect.generated.aces.script.repository import ScriptRepository
-        from architect.generated.aces.script.serialize import serialize_script
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.generated.aces.script.models import Script
+        from factory.generated.aces.script.repository import ScriptRepository
+        from factory.generated.aces.script.serialize import serialize_script
 
         factory = get_session_factory()
         async with factory() as session:

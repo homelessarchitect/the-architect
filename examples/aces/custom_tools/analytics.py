@@ -24,13 +24,13 @@ def register(mcp: FastMCP) -> None:
         """
         from sqlalchemy import select
 
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.content_piece.repository import ContentPieceRepository
-        from architect.generated.aces.published_content.models import PublishedContent
-        from architect.generated.aces.published_content.repository import (
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.content_piece.repository import ContentPieceRepository
+        from factory.generated.aces.published_content.models import PublishedContent
+        from factory.generated.aces.published_content.repository import (
             PublishedContentRepository,
         )
-        from architect.generated.aces.published_content.serialize import (
+        from factory.generated.aces.published_content.serialize import (
             serialize_published_content,
         )
 
@@ -90,10 +90,10 @@ def register(mcp: FastMCP) -> None:
         """Log a performance metrics snapshot for a published piece.
         Can be called multiple times — each call creates a new snapshot.
         """
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.content_metric.models import ContentMetric
-        from architect.generated.aces.content_metric.repository import ContentMetricRepository
-        from architect.generated.aces.content_metric.serialize import serialize_content_metric
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.content_metric.models import ContentMetric
+        from factory.generated.aces.content_metric.repository import ContentMetricRepository
+        from factory.generated.aces.content_metric.serialize import serialize_content_metric
 
         factory = get_session_factory()
         async with factory() as session:
@@ -134,10 +134,10 @@ def register(mcp: FastMCP) -> None:
         """
         from sqlalchemy import select
 
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.content_metric.models import ContentMetric
-        from architect.generated.aces.content_piece.models import ContentPiece
-        from architect.generated.aces.published_content.models import PublishedContent
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.content_metric.models import ContentMetric
+        from factory.generated.aces.content_piece.models import ContentPiece
+        from factory.generated.aces.published_content.models import PublishedContent
 
         factory = get_session_factory()
         async with factory() as session:

@@ -4,9 +4,9 @@ from pathlib import Path
 import pytest
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
-from architect.core.database import Base
-from architect.modules.state.models import StateLock, WorkflowState
-from architect.modules.state.service import StateService
+from factory.core.database import Base
+from factory.modules.state.models import StateLock, WorkflowState
+from factory.modules.state.service import StateService
 
 
 @pytest.fixture

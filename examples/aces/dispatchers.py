@@ -1,6 +1,6 @@
 """ACES dispatcher handlers — execute approved HITL actions.
 
-These are called by The Architect's approval system when a human approves
+These are called by The Factory's approval system when a human approves
 an action in the dashboard. Each handler receives the approval payload and
 performs the actual side effect (publish, send email, etc.).
 
@@ -84,7 +84,7 @@ async def execute_newsletter_send(payload: dict[str, Any], **kwargs: Any) -> dic
     Payload contains: piece_id, title, format, raw_copy.
 
     The actual email send requires an email provider to be configured
-    in The Architect's credential system.
+    in The Factory's credential system.
     """
     piece_id = payload.get("piece_id", "unknown")
     title = payload.get("title", "")
@@ -95,6 +95,6 @@ async def execute_newsletter_send(payload: dict[str, Any], **kwargs: Any) -> dic
         "message": (
             f"Newsletter '{title}' dispatched for sending. "
             "Note: actual email delivery requires email provider configuration "
-            "(e.g., Resend, Lumail) via `architect credential set`."
+            "(e.g., Resend, Lumail) via `factory credential set`."
         ),
     }

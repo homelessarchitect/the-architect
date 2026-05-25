@@ -17,11 +17,11 @@ def register(mcp: FastMCP) -> None:
         """
         from sqlalchemy import select
 
-        from architect.core.database import get_session_factory
-        from architect.generated.aces.brand.models import Brand
-        from architect.generated.aces.calendar_slot.models import CalendarSlot
-        from architect.generated.aces.content_piece.models import ContentPiece
-        from architect.modules.approvals.models import Approval
+        from factory.core.database import get_session_factory
+        from factory.generated.aces.brand.models import Brand
+        from factory.generated.aces.calendar_slot.models import CalendarSlot
+        from factory.generated.aces.content_piece.models import ContentPiece
+        from factory.modules.approvals.models import Approval
 
         factory = get_session_factory()
         async with factory() as session:
