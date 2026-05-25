@@ -14,12 +14,13 @@ from architect.modules.state.service import StateService
 
 @click.command("apply")
 @click.argument("workflow_path", type=click.Path(exists=True))
-def apply_cmd(workflow_path: str) -> None:
+@click.option("--force", is_flag=True, help="Force re-generation even if no changes detected.")
+def apply_cmd(workflow_path: str, force: bool) -> None:
     """Generate code, run migrations, and update state."""
-    asyncio.run(_apply(workflow_path))
+    asyncio.run(_apply(workflow_path, force=force))
 
 
-async def _apply(workflow_path: str) -> None:
+async def _apply(workflow_path: str, *, force: bool = False) -> None:
     workflow = load_workflow_from_file(workflow_path)
     current_hash = StateService.compute_hash(workflow_path)
     entity_names = [e.name for e in workflow.entities]
@@ -34,7 +35,7 @@ async def _apply(workflow_path: str) -> None:
 
         # Check if anything changed
         diff = await service.diff_state(workflow.slug, current_hash, entity_names)
-        if diff["status"] == "no_changes":
+        if diff["status"] == "no_changes" and not force:
             click.echo("Nothing to apply -- no changes detected.")
             await dispose_engine()
             return
